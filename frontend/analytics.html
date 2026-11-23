@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>CloudSpend | Analytics</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+</head>
+
+<body>
+
+<div class="app-container">
+
+```
+<!-- Sidebar -->
+
+<aside class="sidebar">
+
+    <div class="logo">
+        <span class="logo-icon">C</span>
+        <h2>Cloud<span>Spend</span></h2>
+    </div>
+
+    <p class="menu-label">MENU</p>
+
+    <nav>
+
+        <a href="dashboard.html" class="nav-link">
+            ◫ &nbsp; Overview
+        </a>
+
+        <a href="analytics.html" class="nav-link active">
+            ▥ &nbsp; Analytics
+        </a>
+
+        <a href="budget.html" class="nav-link">
+            ◈ &nbsp; Budgets
+        </a>
+
+        <a href="advisor.html" class="nav-link">
+            ♧ &nbsp; Cost Advisor
+        </a>
+
+        <a href="transactions.html" class="nav-link">
+            ◷ &nbsp; Transactions
+        </a>
+
+    </nav>
+
+</aside>
+
+
+<!-- Main Content -->
+
+<main class="main-content">
+
+    <header class="topbar">
+
+        <div>
+            <h1>Analytics</h1>
+            <p>Understand your cloud spending patterns.</p>
+        </div>
+
+        <span class="demo-badge">● DEMO DATA</span>
+
+    </header>
+
+
+    <!-- Welcome Section -->
+
+    <section class="welcome">
+
+        <div>
+            <h2>Spending Analytics</h2>
+
+            <p>
+                Analyze your Google Cloud expenditure.
+            </p>
+        </div>
+
+        <select id="dateFilter" class="date-button">
+
+            <option value="7">Last 7 Days</option>
+
+            <option value="30" selected>Last 30 Days</option>
+
+            <option value="90">Last 3 Months</option>
+
+        </select>
+
+    </section>
+
+
+    <!-- Analytics Cards -->
+
+    <section class="stats-grid analytics-stats">
+
+        <div class="stat-card">
+
+            <p>Total Spending</p>
+
+            <h2 id="totalSpending">₹0</h2>
+
+            <span class="positive">Selected period</span>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <p>Daily Average</p>
+
+            <h2 id="dailyAverage">₹0</h2>
+
+            <span class="neutral">Average daily cost</span>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <p>Highest Spending</p>
+
+            <h2 id="highestSpending">₹0</h2>
+
+            <span class="warning">Highest daily expense</span>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <p>Active Services</p>
+
+            <h2 id="activeServices">0</h2>
+
+            <span class="neutral">Cloud services tracked</span>
+
+        </div>
+
+    </section>
+
+
+    <!-- Charts -->
+
+    <section class="content-grid analytics-grid">
+
+        <div class="panel">
+
+            <div class="panel-header">
+
+                <div>
+                    <h3>Daily Spending Trend</h3>
+
+                    <p>Track your daily cloud expenses.</p>
+                </div>
+
+            </div>
+
+            <div class="analytics-chart-container">
+                <canvas id="dailyChart"></canvas>
+            </div>
+
+        </div>
+
+
+        <div class="panel">
+
+            <div class="panel-header">
+
+                <div>
+                    <h3>Service Breakdown</h3>
+
+                    <p>Cost distribution by service.</p>
+                </div>
+
+            </div>
+
+            <div class="analytics-chart-container">
+                <canvas id="serviceBreakdown"></canvas>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Monthly Comparison -->
+
+    <section class="panel analytics-bottom">
+
+        <div class="panel-header">
+
+            <div>
+                <h3>Monthly Spending Comparison</h3>
+
+                <p>Compare your monthly cloud expenses.</p>
+            </div>
+
+        </div>
+
+        <div class="analytics-chart-container monthly-chart">
+            <canvas id="monthlyChart"></canvas>
+        </div>
+
+    </section>
+
+
+    <!-- Service Table -->
+
+    <section class="panel analytics-bottom">
+
+        <div class="panel-header">
+
+            <div>
+                <h3>Service-wise Expenses</h3>
+
+                <p>Detailed breakdown of cloud services.</p>
+            </div>
+
+        </div>
+
+        <div class="table-wrapper">
+
+            <table class="analytics-table">
+
+                <thead>
+
+                    <tr>
+                        <th>Service</th>
+                        <th>Category</th>
+                        <th>Cost</th>
+                        <th>Percentage</th>
+                    </tr>
+
+                </thead>
+
+                <tbody id="serviceTable">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <footer>
+        CloudSpend © 2026 | Understand Your Cloud. Control Your Costs.
+    </footer>
+
+</main>
+
+
+</div>
+
+<script src="js/analytics.js"></script>
+
+</body>
+</html>

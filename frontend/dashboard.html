@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CloudSpend | Dashboard</title>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+<div class="app-container">
+
+
+<aside class="sidebar">
+
+    <div class="logo">
+        <span class="logo-icon">C</span>
+        <h2>Cloud<span>Spend</span></h2>
+    </div>
+
+    <p class="menu-label">MENU</p>
+
+    <nav>
+        <a href="dashboard.html" class="nav-link active">◫ &nbsp; Overview</a>
+        <a href="analytics.html" class="nav-link">▥ &nbsp; Analytics</a>
+        <a href="budget.html" class="nav-link">◈ &nbsp; Budgets</a>
+        <a href="advisor.html" class="nav-link">♧ &nbsp; Cost Advisor</a>
+        <a href="transactions.html" class="nav-link">◷ &nbsp; Transactions</a>
+    </nav>
+
+    <div class="sidebar-bottom">
+        <a href="#" class="nav-link">⚙ &nbsp; Settings</a>
+
+        <div class="profile">
+            <div class="avatar">BS</div>
+            <div>
+                <h4>Badal Sharma</h4>
+                <p>Free Account</p>
+            </div>
+        </div>
+    </div>
+
+</aside>
+
+<main class="main-content">
+
+    <header class="topbar">
+        <div>
+            <h1>Overview</h1>
+            <p>Monitor your cloud spending and budget.</p>
+        </div>
+
+        <div class="top-actions">
+            <span class="demo-badge">● DEMO DATA</span>
+            <button class="notification">♧</button>
+        </div>
+    </header>
+
+    <section class="welcome">
+        <div>
+            <h2>Welcome back, Badal! 👋</h2>
+            <p>Here's what's happening with your cloud expenses.</p>
+        </div>
+
+        <button class="date-button">October 2026 ▾</button>
+    </section>
+
+    <!-- Spending Summary Cards -->
+
+    <section class="stats-grid">
+
+        <div class="stat-card">
+            <p>Total Spending</p>
+            <h2 id="totalSpending">Loading...</h2>
+            <span class="positive">Current month spending</span>
+        </div>
+
+        <div class="stat-card">
+            <p>Monthly Budget</p>
+            <h2 id="monthlyBudget">Loading...</h2>
+            <span class="neutral">Your monthly spending limit</span>
+        </div>
+
+        <div class="stat-card">
+            <p>Remaining Budget</p>
+            <h2 id="remainingBudget">Loading...</h2>
+            <span class="positive" id="remainingPercentage">Calculating...</span>
+        </div>
+
+        <div class="stat-card">
+            <p>Predicted Bill</p>
+            <h2 id="predictedBill">Calculating...</h2>
+            <span class="warning">Estimated monthly cost</span>
+        </div>
+
+    </section>
+
+    <!-- Charts -->
+
+    <section class="content-grid">
+
+        <div class="panel spending-panel">
+
+            <div class="panel-header">
+                <div>
+                    <h3>Spending Analytics</h3>
+                    <p>Your cloud expenditure over time</p>
+                </div>
+
+                <select id="spendingFilter">
+                <option value="7">Last 7 Days</option>
+                <option value="30">Last 30 Days</option>
+                </select>
+            </div>
+
+            <canvas id="spendingChart"></canvas>
+
+        </div>
+
+        <div class="panel">
+
+            <div class="panel-header">
+                <div>
+                    <h3>Service Breakdown</h3>
+                    <p>Expenses by cloud service</p>
+                </div>
+            </div>
+
+            <canvas id="serviceChart"></canvas>
+
+            <div class="service-list" id="serviceList">
+                <p>Loading service data...</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Monthly Budget Progress -->
+
+    <section class="panel budget-panel">
+
+        <div class="panel-header">
+            <div>
+                <h3>Monthly Budget Usage</h3>
+                <p>Keep track of your spending limit</p>
+            </div>
+
+            <span class="budget-percent" id="budgetPercentage">0%</span>
+        </div>
+
+        <div class="progress-track">
+            <div class="progress-fill" id="budgetProgress"></div>
+        </div>
+
+        <div class="budget-info">
+            <span id="spentAmount">₹0 spent</span>
+            <span id="budgetAmount">₹0 budget</span>
+        </div>
+
+    </section>
+
+    <footer>
+        CloudSpend © 2026 | Understand Your Cloud. Control Your Costs.
+    </footer>
+
+</main>
+
+</div>
+
+<script src="js/dashboard.js"></script>
+
+</body>
+</html>

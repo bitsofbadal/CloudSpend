@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CloudSpend | Transactions</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="app-container">
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            <span class="logo-icon">C</span>
+            <h2>Cloud<span>Spend</span></h2>
+        </div>
+
+        <p class="menu-label">MENU</p>
+
+        <nav>
+
+            <a href="dashboard.html" class="nav-link">
+                ◫ &nbsp; Overview
+            </a>
+
+            <a href="analytics.html" class="nav-link">
+                ▥ &nbsp; Analytics
+            </a>
+
+            <a href="budget.html" class="nav-link">
+                ◈ &nbsp; Budgets
+            </a>
+
+            <a href="advisor.html" class="nav-link">
+                ♧ &nbsp; Cost Advisor
+            </a>
+
+            <a href="transactions.html" class="nav-link active">
+                ◷ &nbsp; Transactions
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- Main Content -->
+
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <div>
+                <h1>Transactions</h1>
+                <p>Track your cloud billing records.</p>
+            </div>
+
+            <span class="demo-badge">● DEMO DATA</span>
+
+        </header>
+
+
+        <section class="welcome">
+
+            <div>
+                <h2>Billing History</h2>
+                <p>View and manage your cloud expenditure records.</p>
+            </div>
+
+            <button class="save-button" id="exportCSV">
+                ↓ Export CSV
+            </button>
+
+        </section>
+
+
+        <!-- Summary Cards -->
+
+        <section class="stats-grid">
+
+            <div class="stat-card">
+                <p>Total Transactions</p>
+                <h2 id="transactionCount">0</h2>
+                <span class="neutral">Billing records</span>
+            </div>
+
+            <div class="stat-card">
+                <p>Total Expenditure</p>
+                <h2 id="transactionTotal">₹0</h2>
+                <span class="positive">All records</span>
+            </div>
+
+            <div class="stat-card">
+                <p>Highest Transaction</p>
+                <h2 id="highestTransaction">₹0</h2>
+                <span class="warning">Maximum expense</span>
+            </div>
+
+            <div class="stat-card">
+                <p>Cloud Services</p>
+                <h2 id="serviceCount">0</h2>
+                <span class="neutral">Services tracked</span>
+            </div>
+
+        </section>
+
+
+        <!-- Transaction Table -->
+
+        <section class="panel transaction-panel">
+
+            <div class="panel-header">
+
+                <div>
+                    <h3>All Transactions</h3>
+                    <p>Search and filter your billing records.</p>
+                </div>
+
+            </div>
+
+
+            <!-- Filters -->
+
+            <div class="transaction-filters">
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search service or project..."
+                >
+
+                <select id="serviceFilter">
+
+                    <option value="all">All Services</option>
+
+                    <option value="Compute Engine">Compute Engine</option>
+
+                    <option value="Cloud Storage">Cloud Storage</option>
+
+                    <option value="Cloud SQL">Cloud SQL</option>
+
+                    <option value="Networking">Networking</option>
+
+                </select>
+
+
+                <select id="sortFilter">
+
+                    <option value="newest">Newest First</option>
+
+                    <option value="oldest">Oldest First</option>
+
+                    <option value="highest">Highest Amount</option>
+
+                    <option value="lowest">Lowest Amount</option>
+
+                </select>
+
+            </div>
+
+
+            <!-- Table -->
+
+            <div class="table-wrapper">
+
+                <table class="analytics-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Date</th>
+
+                            <th>Service</th>
+
+                            <th>Project</th>
+
+                            <th>Category</th>
+
+                            <th>Amount</th>
+
+                            <th>Status</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="transactionTable">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            <p id="emptyMessage" class="empty-message">
+                No transactions found.
+            </p>
+
+        </section>
+
+
+        <footer>
+            CloudSpend © 2026 | Understand Your Cloud. Control Your Costs.
+        </footer>
+
+    </main>
+
+</div>
+
+
+<script src="js/transactions.js"></script>
+
+</body>
+
+</html>
