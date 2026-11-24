@@ -3,7 +3,7 @@
 // Backend Connected Version
 // ========================================
 
-const API_URL = "http://127.0.0.1:5000";
+const API_URL = "";
 
 const SELECTED_MONTH = "2026-10";
 

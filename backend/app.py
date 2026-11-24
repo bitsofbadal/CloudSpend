@@ -1,14 +1,24 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, send_from_directory
 from flask_cors import CORS
 from datetime import datetime
 import calendar
 
 from database import get_connection, initialize_database
 # Flask application
-app = Flask(__name__)
+app = Flask(
+    __name__,
+    static_folder="../frontend",
+    static_url_path=""
+)
 
-# Frontend ko backend access karne ki permission
 CORS(app)
+
+initialize_database()
+
+CORS(app)
+
+# Initialize database when application starts
+initialize_database()
 
 
 # Current month
@@ -19,10 +29,7 @@ def get_current_month():
 # Home API
 @app.route("/")
 def home():
-    return jsonify({
-        "message": "Welcome to CloudSpend API!",
-        "status": "Backend is running successfully"
-    })
+    return send_from_directory(app.static_folder, "index.html")
 
 
 # Dashboard API
@@ -189,10 +196,8 @@ def budget():
 
   # Run server
 if __name__ == "__main__":
-
-    initialize_database()
-
     app.run(
-        debug=True,
-        port=5000
+        host="0.0.0.0",
+        port=5000,
+        debug=False
     )
